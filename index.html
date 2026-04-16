@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOVE LAB 個人鑑定</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #05020a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      padding: 40px 20px;
+      color: white;
+    }
+    .container { max-width: 420px; width: 100%; }
+    .brand { text-align: center; margin-bottom: 28px; }
+    .brand-label {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      color: #d8a0ff;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .brand-title {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ff7eb3, #f9a620, #7ee8fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+    .brand-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .banner {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      border: 1px solid rgba(200,120,255,0.25);
+      box-shadow: 0 0 40px rgba(160,80,255,0.2);
+    }
+    .banner img { width: 100%; display: block; }
+    .features {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(180,100,255,0.2);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .feature-item:last-child { border-bottom: none; }
+    .feature-icon { font-size: 20px; }
+    .feature-text { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+    .price-section { text-align: center; margin-bottom: 20px; }
+    .price-label { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+    .price { font-size: 46px; font-weight: 900; color: #ff4da6; line-height: 1; }
+    .price-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #9333ea, #ec4899, #f59e0b, #ec4899, #9333ea);
+      background-size: 200% auto;
+      animation: shimmer 2s linear infinite;
+      font-weight: 900;
+      color: white;
+      box-shadow: 0 0 40px rgba(236,72,153,0.6), 0 0 80px rgba(168,85,247,0.4);
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn span { font-size: 13px; opacity: 0.9; }
+    .cards-box {
+      background: white;
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .cards-box p { color: #333; font-size: 11px; margin-bottom: 8px; }
+    .cards-box img { width: 100%; max-width: 280px; }
+    @keyframes shimmer {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <p class="brand-label">LOVE LAB</p>
+      <h1 class="brand-title">個人鑑定</h1>
+      <p class="brand-sub">あなた自身の本質・使命・今年の運命を深く読み解く</p>
+    </div>
+
+    <div class="banner">
+      <img src="/lovelab_kojin_banner.png" alt="LOVE LAB 個人鑑定" />
+    </div>
+
+    <div class="features">
+      <div class="feature-item">
+        <span class="feature-icon">🔮</span>
+        <p class="feature-text">生年月日・星座・干支から本質を鑑定</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💫</span>
+        <p class="feature-text">なぜこの人に惹かれるのか深く読み解く</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📅</span>
+        <p class="feature-text">今年の運気・動くべきタイミングを分析</p>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💌</span>
+        <p class="feature-text">この恋を成就させる鍵を伝授</p>
+      </div>
+    </div>
+
+    <div class="price-section">
+      <p class="price-label">特別価格</p>
+      <p class="price">¥1,980</p>
+      <p class="price-note">買い切り・使い放題</p>
+    </div>
+
+    <a href="https://www.paypal.com/ncp/payment/MLRQ5VQBMRAY8" target="_blank" rel="noreferrer" class="btn">
+      ✨ 今すぐ運命鑑定を受ける<br />
+      <span>安心のPayPal決済対応</span>
+    </a>
+
+    <div class="cards-box">
+      <p>安心のPayPal決済に対応</p>
+      <img src="/cards.png" alt="cards" />
+    </div>
+  </div>
+</body>
+</html>
