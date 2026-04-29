@@ -87,15 +87,7 @@
       text-align: center;
     }
     .btn span { font-size: 13px; opacity: 0.9; }
-    .cards-box {
-      background: white;
-      padding: 14px;
-      border-radius: 12px;
-      text-align: center;
-      margin-top: 16px;
-    }
-    .cards-box p { color: #333; font-size: 11px; margin-bottom: 8px; }
-    .cards-box img { width: 100%; max-width: 280px; }
+    .paypal-note { display: none; }
     @keyframes shimmer {
       0%   { background-position: 200% center; }
       100% { background-position: -200% center; }
@@ -139,12 +131,54 @@
       <p class="price-note">買い切り・使い放題</p>
     </div>
 
-    <a href="https://www.paypal.com/ncp/payment/MLRQ5VQBMRAY8" target="_blank" rel="noreferrer" class="btn">
-      ✨ 今すぐ運命鑑定を受ける<br />
-      <span>安心のPayPal決済対応</span>
-    </a>
+    <!-- PayPal SDK ボタン -->
+    <p style="text-align:center;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:12px;letter-spacing:.08em;">── お支払い方法を選択 ──</p>
 
-    <p class="paypal-note">PayPal / Apple Pay / クレジットカード対応</p>
+    <div id="paypal-apple-btn" style="margin-bottom:12px;"></div>
+    <div id="paypal-card-btn" style="margin-bottom:16px;"></div>
+
+    <p style="text-align:center;font-size:11px;color:rgba(255,255,255,.2);margin-top:20px;">© NEXA | LoveLAB 個人鑑定</p>
   </div>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AfUn22zK4UsNWfThHlT_1sqvEi8gmtXHZ4jWMYafWPrX4bBorPFvMY8ZTuZAqTfVXygpK95YmdkZsj-N&currency=JPY&locale=ja_JP&enable-funding=applepay,card&components=buttons"></script>
+  <script>
+    var orderConfig = {
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: '1980', currency_code: 'JPY' },
+            description: 'LoveLAB 個人鑑定'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function() {
+          window.location.href = 'https://thankyou-kojin.vercel.app/';
+        });
+      },
+      onError: function(err) {
+        console.error(err);
+        alert('決済中にエラーが発生しました。しばらくしてから再度お試しください。');
+      }
+    };
+
+    // Apple Pay
+    var appleBtn = paypal.Buttons(Object.assign({}, orderConfig, {
+      fundingSource: paypal.FUNDING.APPLEPAY,
+      style: { shape: 'pill', height: 52 }
+    }));
+    if (appleBtn.isEligible()) {
+      appleBtn.render('#paypal-apple-btn');
+    }
+
+    // クレジット/デビットカード
+    var cardBtn = paypal.Buttons(Object.assign({}, orderConfig, {
+      fundingSource: paypal.FUNDING.CARD,
+      style: { shape: 'pill', height: 52 }
+    }));
+    if (cardBtn.isEligible()) {
+      cardBtn.render('#paypal-card-btn');
+    }
+  </script>
 </body>
 </html>
