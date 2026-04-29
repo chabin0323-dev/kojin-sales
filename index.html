@@ -38,12 +38,58 @@ canvas#stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:n
 .copy h2{font-family:'Noto Serif JP',serif;font-size:19px;font-weight:600;line-height:1.8;color:#f8f0e8;}
 .copy h2 em{font-style:normal;color:#c4637a;}
 
-.features{background:rgba(255,255,255,.03);border:1px solid rgba(196,99,122,.18);border-radius:20px;padding:22px 20px;margin-bottom:24px;}
-.feat{display:flex;align-items:flex-start;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.features{
+  position:relative;
+  background:linear-gradient(145deg,rgba(30,10,40,.9) 0%,rgba(15,5,25,.95) 100%);
+  border:1px solid transparent;
+  border-radius:24px;
+  padding:28px 22px;
+  margin-bottom:28px;
+  overflow:hidden;
+}
+.features::before{
+  content:'';
+  position:absolute;inset:0;
+  border-radius:24px;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(201,169,110,.6),rgba(196,99,122,.4),rgba(201,169,110,.2),rgba(196,99,122,.6));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+.features::after{
+  content:'';
+  position:absolute;
+  top:-60px;right:-60px;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(201,169,110,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.feat{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(201,169,110,.1);
+  position:relative;
+}
 .feat:last-child{border-bottom:none;}
-.feat-icon{font-size:18px;min-width:28px;text-align:center;margin-top:2px;}
-.feat-text{font-size:13px;line-height:1.7;color:rgba(255,255,255,.85);}
-.feat-text strong{color:#c9a96e;font-weight:500;}
+.feat-icon-wrap{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(201,169,110,.15),rgba(196,99,122,.1));
+  border:1px solid rgba(201,169,110,.25);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:18px;
+}
+.feat-body{flex:1;}
+.feat-title{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:600;color:#c9a96e;margin-bottom:3px;letter-spacing:.04em;}
+.feat-desc{font-size:12px;line-height:1.7;color:rgba(255,255,255,.7);}
+.feat-num{
+  position:absolute;right:0;top:14px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:700;
+  color:rgba(201,169,110,.06);
+  line-height:1;
+}
 
 .price-box{text-align:center;margin-bottom:28px;background:rgba(201,169,110,.06);border:1px solid rgba(201,169,110,.2);border-radius:20px;padding:24px 20px;}
 .price-label{font-size:10px;letter-spacing:.5em;color:#c9a96e;text-transform:uppercase;margin-bottom:6px;font-family:'Cormorant Garamond',serif;}
@@ -83,29 +129,54 @@ canvas#stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:n
   </div>
 
   <div class="features">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:10px;letter-spacing:.4em;color:rgba(201,169,110,.6);text-transform:uppercase;text-align:center;margin-bottom:20px;">What You'll Discover</p>
     <div class="feat">
-      <span class="feat-icon">🔮</span>
-      <p class="feat-text"><strong>本質鑑定</strong>：生年月日・血液型・星座・干支から隠れた本質を分析</p>
+      <div class="feat-icon-wrap">🔮</div>
+      <div class="feat-body">
+        <p class="feat-title">本質鑑定</p>
+        <p class="feat-desc">生年月日・血液型・星座・干支から隠れた本質を分析</p>
+      </div>
+      <span class="feat-num">01</span>
     </div>
     <div class="feat">
-      <span class="feat-icon">💫</span>
-      <p class="feat-text"><strong>縁の深さ</strong>：なぜこの人に惹かれるのか、魂の接点を解読</p>
+      <div class="feat-icon-wrap">💫</div>
+      <div class="feat-body">
+        <p class="feat-title">縁の深さ</p>
+        <p class="feat-desc">なぜこの人に惹かれるのか、魂の接点を解読</p>
+      </div>
+      <span class="feat-num">02</span>
     </div>
     <div class="feat">
-      <span class="feat-icon">📅</span>
-      <p class="feat-text"><strong>運気の波</strong>：今年の流れと、動くべきベストタイミングを分析</p>
+      <div class="feat-icon-wrap">📅</div>
+      <div class="feat-body">
+        <p class="feat-title">運気の波</p>
+        <p class="feat-desc">今年の流れと、動くべきベストタイミングを分析</p>
+      </div>
+      <span class="feat-num">03</span>
     </div>
     <div class="feat">
-      <span class="feat-icon">🌟</span>
-      <p class="feat-text"><strong>使命の鍵</strong>：あなたが持つ才能と、人生の本当の方向性</p>
+      <div class="feat-icon-wrap">🌟</div>
+      <div class="feat-body">
+        <p class="feat-title">使命の鍵</p>
+        <p class="feat-desc">あなたが持つ才能と、人生の本当の方向性</p>
+      </div>
+      <span class="feat-num">04</span>
     </div>
     <div class="feat">
-      <span class="feat-icon">💌</span>
-      <p class="feat-text"><strong>成就の鍵</strong>：この恋・この縁を実らせるための具体的なアドバイス</p>
+      <div class="feat-icon-wrap">💌</div>
+      <div class="feat-body">
+        <p class="feat-title">成就の鍵</p>
+        <p class="feat-desc">この恋・この縁を実らせるための具体的なアドバイス</p>
+      </div>
+      <span class="feat-num">05</span>
     </div>
     <div class="feat">
-      <span class="feat-icon">♾️</span>
-      <p class="feat-text"><strong>使い放題</strong>：一度購入すればいつでも何度でも鑑定可能</p>
+      <div class="feat-icon-wrap">♾️</div>
+      <div class="feat-body">
+        <p class="feat-title">使い放題</p>
+        <p class="feat-desc">一度購入すればいつでも何度でも鑑定可能</p>
+      </div>
+      <span class="feat-num">06</span>
     </div>
   </div>
 
