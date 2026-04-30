@@ -199,7 +199,8 @@ canvas#stars{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:n
 var orderConfig = {
   createOrder: function(data, actions) {
     return actions.order.create({
-      purchase_units: [{ amount: { value: '1980', currency_code: 'JPY' }, description: 'LoveLAB 個人鑑定' }]
+      purchase_units: [{ amount: { value: '1980', currency_code: 'JPY' }, description: 'LoveLAB 個人鑑定' }],
+      application_context: { shipping_preference: 'NO_SHIPPING' }
     });
   },
   onApprove: function(data, actions) {
